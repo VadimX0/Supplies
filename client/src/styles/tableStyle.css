@@ -1,0 +1,20 @@
+.tableStyle {
+    font-family: "DejaVu Sans", "Arial", sans-serif;
+    font-size: 12px;
+}
+
+@font-face {
+    font-family: "DejaVu Sans";
+    src: url("https://kendo.cdn.telerik.com/2017.2.621/styles/fonts/DejaVu/DejaVuSans.ttf") format("truetype");
+}
+
+
+/* При экспорте pdf не включается последний столбец с кнопками */
+.k-pdf-export colgroup > col:nth-child(12) {
+    width: 0;
+  }
+
+/* При экспорте pdf не включается ToolBar*/
+.k-pdf-export >.k-grid .k-toolbar {
+    display: none;
+}
