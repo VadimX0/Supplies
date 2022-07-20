@@ -1,6 +1,7 @@
 const sequelize = require('../db')
 const {DataTypes} = require('sequelize')
 
+
 const Organizations = sequelize.define('mpe1gem', { //Таблица о возможностях органищаций
     id:{type: DataTypes.INTEGER, autoIncrement:true, primaryKey:true},
     npp:{type:DataTypes.INTEGER},
