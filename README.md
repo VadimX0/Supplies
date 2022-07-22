@@ -9,3 +9,6 @@ Organizations and their supplies in an editable table
 
 ## dump базы данных
 supply.sql
+
+## Тесты
+client\src\tests
