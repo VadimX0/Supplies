@@ -11,7 +11,7 @@ class OrganizationsController{
                 immg_cena, alb_max,alb_cena
             } = req.body
     
-            const entry = await Organizations.create({ //Запись в таблице вносится в бд
+            const entry = await Organizations.create({ //Запись в таблице клиента вносится в бд
                 r1022, naim_org, adr_fact, 
                 inn, plazma_max, plazma_cena, 
                 erm_max, erm_cena, immg_max,
@@ -28,7 +28,7 @@ class OrganizationsController{
     async getOrganizationsSupplies(req,res){
         try{
             const {p00} = req.query//какой субъект выбран
-            const entries = await Organizations.findAll({where:{r1022:p00 || "0100000000"}})//выбираем записи с организациями для этого субъекта
+            const entries = await Organizations.findAll({where:{r1022:p00 || "0100000000"}})//выбираем записи из бд с организациями для этого субъекта
             return res.json(entries)
         }catch(e){
             res.json(e)
@@ -36,7 +36,7 @@ class OrganizationsController{
         
     }
 
-    async updateOrgazationsSupplies(req,res){
+    async updateOrgazationsSupplies(req,res){//Изменение данных в бд пользователем, редактирующим существующие записи в таблице
         try{
             const {
                 id, r1022, naim_org, adr_fact, 
@@ -53,7 +53,7 @@ class OrganizationsController{
                 immg_cena, alb_max,alb_cena
                 },
                 {
-                    where:{id:id}
+                    where:{id:id}//Соответствующая запись в бд находится по id
                 })
                 return res.json(entries)
         }catch(e){
@@ -62,7 +62,7 @@ class OrganizationsController{
         
     }
 
-    async deleteSupply(req,res){//удаление записи из таблицы
+    async deleteSupply(req,res){//удаление записи из таблицы по id
         try{
             const {id} = req.query
             console.log(req.query)

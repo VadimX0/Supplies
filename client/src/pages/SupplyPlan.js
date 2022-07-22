@@ -19,38 +19,34 @@ const SupplyPlan = ()=>{
         dispatch(setSelectedRegion(region))
     }
 
-    
     useEffect(()=>{
         fetchAllRegions().then(data=>{
-           setRegions(data)
+           setRegions(data)//Передаем в redux хранилище субъекты
            dispatch(setSelectedRegion(data[0]))//По умолчанию первый субъект выбран
-        }).finally(()=>setLoading(false))
+        }).finally(()=>setLoading(false))//Остановка анимации загрузки
     },[])
 
-    const filteredRegions = regions.filter(region=>{//Поиск
+    const filteredRegions = regions.filter(region=>{//Поиск в выпадающем списке субъектов
         return region.p01?.toLowerCase().includes(searchValue.toLowerCase())
     })
-  
 
-
-    if(loading){
+    if(loading){//Анимация загрузки
         return <div style={{margin:'10vh'}} className="d-flex justify-content-center"> <CircleLoader size={500} color={BASIC_COLOR}/></div>
     }
 
-
     return(
-        <Container>
-            <Row>
+        <Container data-testid='supply-page'>
+            <Row >
             <Col>
                 <SupplyTable/>{/* Основная таблица */}
             </Col>
             </Row>
             <Container style={{height:'5vh'}}></Container>
-            <Row>
+            <Row style={{marginBottom:'5vh'}}>
                 <Col md={2}>
                     {/* Выбор региона */}
                     <Dropdown>
-                        <Dropdown.Toggle>
+                        <Dropdown.Toggle data-testid='toggle-item'>
                             {selectedRegion.p01}
                         </Dropdown.Toggle>
                         <Dropdown.Menu style={{maxHeight:'50vh', overflowY:'scroll'}}>

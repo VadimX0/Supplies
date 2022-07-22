@@ -6,13 +6,11 @@ import { BASIC_COLOR, PLAN_ROUTE } from "../utils/consts"
 
 
 const MainPage=()=>{
-    const history = useHistory()
     return(
-        <div style={styles.cardStyle}>
+        <div data-testid='main-page' style={styles.cardStyle}>
             <div style={{display:'flex', flexDirection:'column',justifyContent:'space-evenly', marginLeft:'1%'}}>
                 <h4 style={styles.textItemsStyle}>Статистика</h4>
                 <h4 style={styles.textItemsStyle}>Справочная информация</h4>
-                
             </div>
         </div>
     )
@@ -20,6 +18,7 @@ const MainPage=()=>{
 
 const styles={
     cardStyle:{
+        marginTop:'10vh',
         border:'2px solid black',
         borderRadius:5,
         display:'flex',

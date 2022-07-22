@@ -1,14 +1,14 @@
 const sequelize = require('../db')
 const {DataTypes} = require('sequelize')
 
-
-const Organizations = sequelize.define('mpe1gem', { //Таблица о возможностях органищаций
+//Определяем таблицы
+const Organizations = sequelize.define('mpe1gem', { //Таблица о возможностях организаций
     id:{type: DataTypes.INTEGER, autoIncrement:true, primaryKey:true},
     npp:{type:DataTypes.INTEGER},
-    r1022:{type: DataTypes.STRING},
-    naim_org:{type: DataTypes.STRING},
-    adr_fact:{type: DataTypes.STRING},
-    inn:{type: DataTypes.STRING},
+    r1022:{type: DataTypes.STRING(11)},
+    naim_org:{type: DataTypes.STRING(1000)},
+    adr_fact:{type: DataTypes.STRING(1000)},
+    inn:{type: DataTypes.STRING(100)},
     plazma_max:{type:DataTypes.INTEGER},
     plazma_cena:{type:DataTypes.INTEGER},
     erm_max:{type:DataTypes.INTEGER},

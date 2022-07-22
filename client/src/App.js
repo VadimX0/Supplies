@@ -3,11 +3,13 @@ import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 import TasksBar from "./components/TasksBar";
 import '@progress/kendo-theme-default/dist/all.css';
-
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 function App() {
-  document.body.style.overflow = 'hidden';//Предотвращает прокрутку страрницы
+  
   return (
+    <Provider store={store}>
         <BrowserRouter>
         <Row>
         <Col md={1} >
@@ -18,6 +20,7 @@ function App() {
           </Col>
           </Row>
         </BrowserRouter>
+        </Provider>
   );
 }
 

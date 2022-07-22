@@ -1,6 +1,7 @@
 .tableStyle {
     font-family: "DejaVu Sans", "Arial", sans-serif;
     font-size: 12px;
+    
 }
 
 @font-face {
@@ -18,3 +19,14 @@
 .k-pdf-export >.k-grid .k-toolbar {
     display: none;
 }
+
+/* Стиль кастомных заголовков */
+.colTitle {
+    display: block;
+    flex-flow: row wrap;
+
+    white-space:pre-line;
+    text-align: center;
+    height: 10vh;
+    overflow-wrap: break-word;
+  }

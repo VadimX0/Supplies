@@ -25,12 +25,13 @@ export const insertOrganizationsSupply = async(//Внесение в бд вве
     alb_max=alb_max||null
     alb_cena=alb_cena||null
 
-    const {data} = await $host.post('/organizations', {
+    const {data} = await $host.post('/organizations', {//Внесение записи в бд
             r1022, naim_org, adr_fact, 
             inn, plazma_max, plazma_cena, 
             erm_max, erm_cena, immg_max,
             immg_cena, alb_max,alb_cena
     })
+
     return data
 }
 
@@ -40,12 +41,14 @@ export const updateSupplies = async(
     inn, plazma_max, plazma_cena, 
     erm_max, erm_cena, immg_max,
     immg_cena, alb_max,alb_cena)=>{
-    const {data} = await $host.put('/organizations', {
+
+    const {data} = await $host.put('/organizations', {//Обновление записи в бд
             id,r1022, naim_org, adr_fact, 
             inn, plazma_max, plazma_cena, 
             erm_max, erm_cena, immg_max,
             immg_cena, alb_max,alb_cena
     })
+
     return data
 }
 
