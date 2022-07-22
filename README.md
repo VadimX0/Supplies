@@ -11,4 +11,4 @@ Organizations and their supplies in an editable table
 supply.sql
 
 ## Тесты
-client\src\tests
+...client\src\tests
